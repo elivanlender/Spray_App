@@ -35,17 +35,21 @@
 </head>
 <body>
     <div class="login">
-        <img src="{{ url_for('static', filename='IMG/Logotipo-Relant.jpeg') }}" alt="Logotipo" height="75px"> <h2>Control Web-app V0.1</h2>
-        <p>Solo es una prueba</p>
-        <form action="{{url_for('boton1')}}" method="post">
-            <button type="submit" class="btn btn-primary">Encender</button>
-        </form>
-        <form action="{{url_for('boton2')}}" method="post">
-            <button type="submit" class="btn btn-primary">Apagar</button>
-        </form>
-    </div>
-    <br>
-    {{ DATO }}
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+            <img src="{{ url_for('static', filename='IMG/Logotipo-Relant.jpeg') }}" alt="Logotipo" height="75px"> <h2>Control Web-app V0.1</h2>
+            <p>Solo es una prueba</p>
+            <form action="{{url_for('boton1')}}" method="post">
+                <input type="f"
+                <button type="submit" class="btn btn-primary">Encender</button>
+            </form>
+            <br>
+            <form action="{{url_for('boton2')}}" method="post">
+                <button type="submit" class="btn btn-primary">Apagar</button>
+            </form>
+        </div>
+        <br>
+        <h2>{{ DATO }}</h2>
+        <br>
+
+    <script src="{{ url_for('static', filename='JS/main.js') }}"></script>
 </body>
 </html>

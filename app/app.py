@@ -67,8 +67,8 @@ app=Flask(__name__)
 def index():
     GPIO.cleanup()
     GPIO.output(Out_9, GPIO.LOW)
-    GPIO.output(Out_1, GPIO.HIGH)
-    return render_template('index.html', DATO='La señal 1 está Encendida')
+    GPIO.output(Out_1, GPIO.LOW)
+    return render_template('index.html', DATO='La señal 1 está Apagada')
 
 @app.route("/boton1", methods=['POST'])
 def boton1():

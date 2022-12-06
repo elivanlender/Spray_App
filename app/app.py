@@ -74,13 +74,13 @@ def index():
 def boton1():
     GPIO.cleanup()
     GPIO.output(Out_1,GPIO.HIGH)
-    return render_template('index.html', f'La salida 1 está encendida')
+    return render_template('index.html')
 
 @app.route("/boton2", methods=['POST'])
 def boton2():
     GPIO.cleanup()
     GPIO.output(Out_1,GPIO.LOW)
-    return render_template('index.html', f'La salida 1 está apagada')
+    return render_template('index.html')
 
 if __name__=='__main__':
     app.run(host='192.168.100.232', port=5500)

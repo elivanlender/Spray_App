@@ -62,7 +62,6 @@ GPIO.setup(In_10, GPIO.IN)
 GPIO.setup(In_11, GPIO.IN)
 GPIO.setup(In_12, GPIO.IN)
 
-manual=1
 
 app=Flask(__name__)
 
@@ -85,6 +84,7 @@ def boton2():
 
 @app.route("/boton3", methods=['POST'])
 def boton3():
+    manual=1
     while(manual==1):
         GPIO.cleanup()
         while(GPIO.input(In_1)):

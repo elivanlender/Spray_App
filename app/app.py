@@ -117,6 +117,7 @@ def boton4():
         GPIO.output(Out_2,GPIO.LOW)
         if GPIO.input(In_2):
             manual=0
+            break
     return render_template('index.html',pretime=tiempo1,posttime=tiempo2)
     
 

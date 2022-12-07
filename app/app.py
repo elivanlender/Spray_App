@@ -1,5 +1,5 @@
 # coding=utf-8
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from time import *
 import Adafruit_BBIO.GPIO as GPIO
 
@@ -83,16 +83,16 @@ def boton2():
     return render_template('index.html', DATO="Signal 1: Deactivated")
 
 @app.route("/boton3", methods=['POST'])
-def boton3(tiempo1,tiempo2):
+def boton3(pretime,posttime):
     manual=1
     while(manual==1):
         GPIO.cleanup()
         while(GPIO.input(In_1)):
             GPIO.output(Out_2, GPIO.HIGH)
-            sleep(tiempo1)
+            sleep(pretime)
             GPIO.output(Out_1, GPIO.HIGH)
         GPIO.output(Out_1, GPIO.LOW)
-        sleep(tiempo2)
+        sleep(posttime)
         GPIO.output(Out_2,GPIO.LOW)
         if GPIO.input(In_2):
             manual=0
@@ -102,7 +102,7 @@ def boton3(tiempo1,tiempo2):
 def boton4():
     tiempo1=float(request.form['tiempo1'])
     tiempo2=float(request.form['tiempo2'])
-    return render_template('index.html',tiempo1,tiempo2)
+    return render_template('index.html',pretime=tiempo1,posttime=tiempo2)
     
 
 if __name__=='__main__':

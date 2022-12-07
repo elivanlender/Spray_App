@@ -99,10 +99,10 @@ def boton3(tiempo1,tiempo2):
     return render_template('index.html')
 
 @app.route("/boton4", methods=['POST'])
-    def boton4():
-        tiempo1=float(request.form['tiempo1'])
-        tiempo2=float(request.form['tiempo2'])
-        return render_template('index.html',tiempo1,tiempo2)
+def boton4():
+    tiempo1=float(request.form['tiempo1'])
+    tiempo2=float(request.form['tiempo2'])
+    return render_template('index.html',tiempo1,tiempo2)
     
 
 if __name__=='__main__':

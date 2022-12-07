@@ -62,6 +62,8 @@ GPIO.setup(In_10, GPIO.IN)
 GPIO.setup(In_11, GPIO.IN)
 GPIO.setup(In_12, GPIO.IN)
 
+manual==False
+
 app=Flask(__name__)
 
 @app.route('/')

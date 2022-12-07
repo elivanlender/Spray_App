@@ -62,7 +62,7 @@ GPIO.setup(In_10, GPIO.IN)
 GPIO.setup(In_11, GPIO.IN)
 GPIO.setup(In_12, GPIO.IN)
 
-manual==False
+manual=1
 
 app=Flask(__name__)
 
@@ -82,15 +82,14 @@ def boton1():
 
 @app.route("/boton2", methods=['POST'])
 def boton2():
-    manual==False
+    manual=0
     GPIO.cleanup()
     GPIO.output(Out_1,GPIO.LOW)
     return render_template('index.html', DATO="Signal 1: Deactivated")
 
 @app.route("/boton3", methods=['POST'])
 def boton3():
-    manual==True
-    while(manual==True):
+    while(manual=1):
         GPIO.cleanup()
         while(GPIO.input(In_1)):
             GPIO.output(Out_1, GPIO.HIGH)

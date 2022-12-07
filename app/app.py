@@ -82,7 +82,6 @@ def boton1():
 
 @app.route("/boton2", methods=['POST'])
 def boton2():
-    manual=0
     GPIO.cleanup()
     GPIO.output(Out_1,GPIO.LOW)
     return render_template('index.html', DATO="Signal 1: Deactivated")

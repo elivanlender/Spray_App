@@ -67,8 +67,9 @@ app=Flask(__name__)
 @app.route('/')
 def index():
     GPIO.cleanup()
-    GPIO.output(Out_9, GPIO.LOW)
     GPIO.output(Out_1, GPIO.LOW)
+    if In_1 == True:
+        GPIO.output(Out_1, GPIO.HIGH)
     return render_template('index.html', DATO="Signal 1: Deactivated")
 
 @app.route("/boton1", methods=['POST'])
@@ -82,6 +83,8 @@ def boton2():
     GPIO.cleanup()
     GPIO.output(Out_1,GPIO.LOW)
     return render_template('index.html', DATO="Signal 1: Deactivated")
+
+@app.route()
 
 if __name__=='__main__':
     app.run(host='192.168.100.232', port=5500)

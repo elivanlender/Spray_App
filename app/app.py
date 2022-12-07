@@ -86,9 +86,11 @@ def boton2():
 
 @app.rooute("/boton3", methods=['POST'])
 def boton3():
-    GPIO.cleanup()
-    if GPIO.input(In_1):
-        GPIO.output(Out_1, GPIO.HIGH)
+    while(1):
+        GPIO.cleanup()
+        while(GPIO.input(In_1)):
+            GPIO.output(Out_1, GPIO.HIGH)
+        GPIO.output(Out_1, GPIO.LOW)
     return render_template('index.html')
     
 

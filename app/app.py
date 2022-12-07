@@ -69,9 +69,6 @@ app=Flask(__name__)
 @app.route('/')
 def index():
     GPIO.cleanup()
-    GPIO.output(Out_1, GPIO.LOW)
-    if GPIO.input(In_1):
-        GPIO.output(Out_1, GPIO.HIGH)
     return render_template('index.html', DATO="Signal 1: Deactivated")
 
 @app.route("/boton1", methods=['POST'])

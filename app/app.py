@@ -89,7 +89,7 @@ def boton2():
 
 @app.route("/boton3", methods=['POST'])
 def boton3():
-    while(manual=1):
+    while(manual==1):
         GPIO.cleanup()
         while(GPIO.input(In_1)):
             GPIO.output(Out_1, GPIO.HIGH)

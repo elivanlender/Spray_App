@@ -77,22 +77,33 @@ def boton1():
     return render_template('index.html', DATO="Signal 1: Activated")
 
 @app.route("/boton2", methods=['POST'])
+manual=0
 def boton2():
     GPIO.cleanup()
     GPIO.output(Out_1,GPIO.LOW)
     return render_template('index.html', DATO="Signal 1: Deactivated")
 
 @app.route("/boton3", methods=['POST'])
-def boton3():
+def boton3(tiempo1,tiempo2):
     manual=1
     while(manual==1):
         GPIO.cleanup()
         while(GPIO.input(In_1)):
+            GPIO.output(Out_2, GPIO.HIGH)
+            sleep(tiempo1)
             GPIO.output(Out_1, GPIO.HIGH)
         GPIO.output(Out_1, GPIO.LOW)
+        sleep(tiempo2)
+        GPIO.output(Out_2,GPIO.LOW)
         if GPIO.input(In_2):
             manual=0
     return render_template('index.html')
+
+@app.route("/boton4", methods=['POST'])
+    def boton4():
+        tiempo1=float(request.form['tiempo1'])
+        tiempo2=float(request.form['tiempo2'])
+        return render_template('index.html',tiempo1,tiempo2)
     
 
 if __name__=='__main__':

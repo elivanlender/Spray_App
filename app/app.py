@@ -84,5 +84,13 @@ def boton2():
     GPIO.output(Out_1,GPIO.LOW)
     return render_template('index.html', DATO="Signal 1: Deactivated")
 
+@app.rooute("/boton3", methods=['POST'])
+def boton3():
+    GPIO.cleanup()
+    if GPIO.input(In_1):
+        GPIO.output(Out_1, GPIO.HIGH)
+    return render_template('index.html')
+    
+
 if __name__=='__main__':
     app.run(host='192.168.100.232', port=5500)

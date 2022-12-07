@@ -81,7 +81,6 @@ def boton1():
     return render_template('index.html', DATO="Signal 1: Activated")
 
 @app.route("/boton2", methods=['POST'])
-manual==0
 def boton2():
     GPIO.cleanup()
     GPIO.output(Out_1,GPIO.LOW)
@@ -89,7 +88,7 @@ def boton2():
 
 @app.route("/boton3", methods=['POST'])
 def boton3():
-    while(manual==1):
+    while(manual==0):
         GPIO.cleanup()
         while(GPIO.input(In_1)):
             GPIO.output(Out_1, GPIO.HIGH)

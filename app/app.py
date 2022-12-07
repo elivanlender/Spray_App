@@ -89,10 +89,10 @@ def boton3():
         GPIO.cleanup()
         while(GPIO.input(In_1)):
             GPIO.output(Out_2, GPIO.HIGH)
-            sleep(pretime)
+            sleep(500)
             GPIO.output(Out_1, GPIO.HIGH)
         GPIO.output(Out_1, GPIO.LOW)
-        sleep(posttime)
+        sleep(1000)
         GPIO.output(Out_2,GPIO.LOW)
         if GPIO.input(In_2):
             manual=0
@@ -103,14 +103,17 @@ def boton4():
     tiempo1=float(request.form['tiempo1'])
     tiempo2=float(request.form['tiempo2'])
     manual=1
+    print (manual)
+    print (tiempo1)
+    print(tiempo2)
     while(manual==1):
         GPIO.cleanup()
         while(GPIO.input(In_1)):
             GPIO.output(Out_2, GPIO.HIGH)
-            sleep(tiempo1)
+            sleep(tiempo1*1000)
             GPIO.output(Out_1, GPIO.HIGH)
         GPIO.output(Out_1, GPIO.LOW)
-        sleep(tiempo2)
+        sleep(tiempo2*1000)
         GPIO.output(Out_2,GPIO.LOW)
         if GPIO.input(In_2):
             manual=0

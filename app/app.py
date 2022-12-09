@@ -89,10 +89,10 @@ def boton3():
         GPIO.cleanup()
         while(GPIO.input(In_1)):
             GPIO.output(Out_2, GPIO.HIGH)
-            sleep(500)
+            sleep(0.5)
             GPIO.output(Out_1, GPIO.HIGH)
         GPIO.output(Out_1, GPIO.LOW)
-        sleep(1000)
+        sleep(1.0)
         GPIO.output(Out_2,GPIO.LOW)
         if GPIO.input(In_2):
             manual=0
@@ -106,8 +106,8 @@ def boton4():
     print (manual)
     print (tiempo1)
     print(tiempo2)
-    print(int(tiempo1*1000))
-    print(int(tiempo2*1000))
+    print(int(tiempo1))
+    print(int(tiempo2))
     while(manual==1):
         GPIO.cleanup()
         while(GPIO.input(In_1)):

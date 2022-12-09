@@ -106,6 +106,8 @@ def boton4():
     print (manual)
     print (tiempo1)
     print(tiempo2)
+    print(int(tiempo1*1000))
+    print(int(tiempo2*1000))
     while(manual==1):
         GPIO.cleanup()
         while(GPIO.input(In_1)):

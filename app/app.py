@@ -112,14 +112,13 @@ def boton4():
         GPIO.cleanup()
         while(GPIO.input(In_1)):
             GPIO.output(Out_2, GPIO.HIGH)
-            sleep(int(tiempo1*1000))
+            sleep(int(tiempo1))
             GPIO.output(Out_1, GPIO.HIGH)
         GPIO.output(Out_1, GPIO.LOW)
-        sleep(int(tiempo2*1000))
+        sleep(int(tiempo2))
         GPIO.output(Out_2,GPIO.LOW)
         if GPIO.input(In_2):
             manual=0
-            break
     return render_template('index.html')
     
 
